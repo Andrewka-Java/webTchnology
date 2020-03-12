@@ -13,10 +13,7 @@ moduleName:
 				DishDao.java(Интерфейс)
 			model:
 				Dish.java
-
 			Application.java (Start.java)
-			
-
 		resources:
 			static:
 				css:
@@ -25,7 +22,6 @@ moduleName:
 					images.jpg
 		templates:
 			ftl-templates(шаблоны Freemarker)
-
 		application.properties
 		shema.sql
 		data.sql
