@@ -4,27 +4,31 @@
 
 Структура модулей webTechnology:
 
-moduleName:
-	src:
-		main/java/com.webtechnology:
-			controllers:
-				CookController.java
-			dao:
-				DishDao.java(Интерфейс)
-			model:
-				Dish.java
-			Application.java (Start.java)
-		resources:
-			static:
-				css:
-					style.css
-				img:
-					images.jpg
-		templates:
-			ftl-templates(шаблоны Freemarker)
-		application.properties
-		shema.sql
-		data.sql
+
+
+	moduleName:
+		src:
+			main/java/com.webtechnology:
+				controllers:
+					CookController.java
+				dao:
+					DishDao.java(Интерфейс)
+				model:
+					Dish.java
+				Application.java (Start.java)
+			resources:
+				static:
+					css:
+						style.css
+					img:
+						images.jpg
+			templates:
+				ftl-templates(шаблоны Freemarker)
+			application.properties
+			shema.sql
+			data.sql
+		
+		
 
 ## Описание:
 Для сборки проекта используется технолоигия Maven. 
