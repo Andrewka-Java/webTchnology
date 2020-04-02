@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<table>
+    <tr><strong>Блюдо:</strong></tr><br>
+    <tr th:text="${dish.dish.name}"></tr><br>
+    <tr><strong>Описание</strong></tr><br>
+    <tr th:text="${dish.dish.description}"></tr><br>
+    <strong>Рейтинг:<tr th:text="${dish.dish.rating}"></tr></strong><br>
+</table>
+
+</body>
+</html>

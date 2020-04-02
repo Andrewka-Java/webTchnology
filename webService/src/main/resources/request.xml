@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:sn="http://spring.net/example/soap">
+
+    <soapenv:Header/>
+    <soapenv:Body>
+        <sn:getDishByIdRequest>
+            <sn:id>2</sn:id>
+        </sn:getDishByIdRequest>
+    </soapenv:Body>
+
+</soapenv:Envelope>
