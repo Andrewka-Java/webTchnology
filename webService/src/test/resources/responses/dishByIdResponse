@@ -1,0 +1,13 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:getDishByIdResponse xmlns:ns2="http://spring.net/example/soap">
+            <ns2:dish>
+                <ns2:id>2</ns2:id>
+                <ns2:name>Драники</ns2:name>
+                <ns2:description>Тут должен быть рецепт приготовления драников</ns2:description>
+                <ns2:rating>5</ns2:rating>
+            </ns2:dish>
+        </ns2:getDishByIdResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

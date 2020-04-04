@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:sn="http://spring.net/example/soap">
+
+    <soapenv:Header/>
+    <soapenv:Body>
+        <sn:getDeleteRequest>
+            <sn:id>3</sn:id>
+        </sn:getDeleteRequest>
+    </soapenv:Body>
+
+</soapenv:Envelope>

@@ -15,7 +15,7 @@ public class DishClient extends WebServiceGatewaySupport {
     public GetDishByIdResponse getDishById(Integer id) {
 
         //        GetCountryResponse response = (GetCountryResponse) getWebServiceTemplate()
-//                .marshalSendAndReceive("http://localhost:8080/ws/countries", request,
+//                .marshalSendAndReceive("http://localhost:8080/ws/countries", requests,
 //                        new SoapActionCallback(
 //                                "http://spring.io/guides/gs-producing-web-service/GetCountryRequest"
 //                        ));

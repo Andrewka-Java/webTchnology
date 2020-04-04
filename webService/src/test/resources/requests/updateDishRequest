@@ -1,0 +1,16 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:sn="http://spring.net/example/soap">
+
+    <soapenv:Header/>
+    <soapenv:Body>
+        <sn:getAddDishRequest>
+            <sn:dish>
+                <sn:id>2</sn:id>
+                <sn:name>Тестовое блюдо</sn:name>
+                <sn:description>Тут должен быть рецепт приготовления тестового блюда</sn:description>
+                <sn:rating>4</sn:rating>
+            </sn:dish>
+        </sn:getAddDishRequest>
+    </soapenv:Body>
+
+</soapenv:Envelope>

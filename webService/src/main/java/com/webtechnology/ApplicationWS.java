@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @MapperScan("com.webtechnology.*")
 @SpringBootApplication
-public class Application {
+public class ApplicationWS {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ApplicationWS.class, args);
     }
 }

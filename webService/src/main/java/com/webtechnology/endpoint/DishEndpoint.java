@@ -27,6 +27,7 @@ public class DishEndpoint {
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getAllDishRequest")
+//    @Action(NAMESPACE_URI + "/getAllDishRequest")
     @ResponsePayload
     public GetAllDishResponse getAllDishResponse(@RequestPayload GetAllDishRequest request) {
 

@@ -1,0 +1,25 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:getAllDishResponse xmlns:ns2="http://spring.net/example/soap">
+            <ns2:listOfDishes>
+                <ns2:id>1</ns2:id>
+                <ns2:name>Борщ</ns2:name>
+                <ns2:description>Тут должен быть рецепт приготовления борща</ns2:description>
+                <ns2:rating>5</ns2:rating>
+            </ns2:listOfDishes>
+            <ns2:listOfDishes>
+                <ns2:id>2</ns2:id>
+                <ns2:name>Драники</ns2:name>
+                <ns2:description>Тут должен быть рецепт приготовления драников</ns2:description>
+                <ns2:rating>5</ns2:rating>
+            </ns2:listOfDishes>
+            <ns2:listOfDishes>
+                <ns2:id>3</ns2:id>
+                <ns2:name>Пельмени</ns2:name>
+                <ns2:description>Тут должен быть рецепт приготовления пельменей</ns2:description>
+                <ns2:rating>4</ns2:rating>
+            </ns2:listOfDishes>
+        </ns2:getAllDishResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
