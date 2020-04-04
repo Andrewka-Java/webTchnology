@@ -36,9 +36,10 @@
 ## Технологии
 
 При написании приложения использовались следующие технологии:
+- JDK 1.8
 - Maven
+- MyBatis
 - Spring Boot
 - Spring WS
-- MyBatis
 - Thymeleaf
 
