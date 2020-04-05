@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Configuration
-public class DishConfiguration {
+public class WCConfig {
 
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DishConfiguration.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WCConfig.class);
 
     @Bean
     public Jaxb2Marshaller marshaller() {
@@ -19,7 +19,6 @@ public class DishConfiguration {
 
         marshaller.setContextPath("com.example.consumingwebservice.wsdl");
 
-        LOGGER.info("MARSHALLER : {}", marshaller.toString());
         return marshaller;
     }
 
@@ -30,8 +29,6 @@ public class DishConfiguration {
         client.setDefaultUri("http://localhost:8080/ws");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
-
-        LOGGER.info("CLIENT: {}",client.toString());
 
         return client;
     }

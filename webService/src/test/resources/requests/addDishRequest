@@ -6,9 +6,9 @@
         <sn:getAddDishRequest>
             <sn:dish>
                 <sn:id></sn:id>
-                <sn:name>Бульба</sn:name>
-                <sn:description>Тут должен быть рецепт приготовления бульбы</sn:description>
-                <sn:rating>5</sn:rating>
+                <sn:name>Тестовое блюдо</sn:name>
+                <sn:description>Тут должен быть рецепт приготовления тестового блюда</sn:description>
+                <sn:rating>4</sn:rating>
             </sn:dish>
         </sn:getAddDishRequest>
     </soapenv:Body>

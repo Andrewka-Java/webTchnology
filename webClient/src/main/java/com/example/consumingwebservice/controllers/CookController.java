@@ -1,7 +1,7 @@
 package com.example.consumingwebservice.controllers;
 
 import com.example.consumingwebservice.client.DishClient;
-import com.example.consumingwebservice.client.config.DishConfiguration;
+import com.example.consumingwebservice.client.config.WCConfig;
 import com.example.consumingwebservice.wsdl.Dish;
 import com.example.consumingwebservice.wsdl.GetAllDishResponse;
 import com.example.consumingwebservice.wsdl.GetDishByIdResponse;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class CookController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DishConfiguration.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WCConfig.class);
 
 
     @Autowired

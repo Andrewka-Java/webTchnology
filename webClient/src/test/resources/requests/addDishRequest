@@ -3,14 +3,14 @@
 
     <soapenv:Header/>
     <soapenv:Body>
-        <sn:getUpdateDishRequest>
+        <sn:getAddDishRequest>
             <sn:dish>
-                <sn:id>2</sn:id>
+                <sn:id></sn:id>
                 <sn:name>Тестовое блюдо</sn:name>
                 <sn:description>Тут должен быть рецепт приготовления тестового блюда</sn:description>
                 <sn:rating>4</sn:rating>
             </sn:dish>
-        </sn:getUpdateDishRequest>
+        </sn:getAddDishRequest>
     </soapenv:Body>
 
 </soapenv:Envelope>

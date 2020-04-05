@@ -1,36 +1,37 @@
 package com.webtechnology;
 
 
-import com.webtechnology.dao.DishDao;
-import com.webtechnology.endpoint.config.WSConfig;
-import net.spring.example.soap.Dish;
-import org.junit.jupiter.api.*;
+import com.example.consumingwebservice.ApplicationWC;
+import com.example.consumingwebservice.client.DishClient;
+import com.example.consumingwebservice.client.config.WCConfig;
+import com.example.consumingwebservice.wsdl.Dish;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.ws.test.server.MockWebServiceClient;
+import org.springframework.ws.test.client.MockWebServiceServer;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.springframework.ws.test.server.RequestCreators.withSoapEnvelope;
-import static org.springframework.ws.test.server.ResponseMatchers.soapEnvelope;
+import static org.springframework.ws.test.client.RequestMatchers.anything;
+import static org.springframework.ws.test.client.RequestMatchers.soapEnvelope;
+import static org.springframework.ws.test.client.ResponseCreators.withSoapEnvelope;
+
 
 @ExtendWith(SpringExtension.class)
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@ContextConfiguration(classes = {ApplicationWS.class, WSConfig.class})
-class WebServiceTest implements ResourceLoaderAware {
+@ContextConfiguration(classes = {ApplicationWC.class, WCConfig.class})
+class WebClientTest implements ResourceLoaderAware {
+
+    private MockWebServiceServer mockServer;
+    private ResourceLoader resourceLoader;
 
     @Autowired
-    private ApplicationContext context;
-    @Autowired
-    private DishDao dishDao;
+    private DishClient client;
 
     @Autowired
     public void setResourceLoader(ResourceLoader resourceLoader) {
@@ -40,12 +41,8 @@ class WebServiceTest implements ResourceLoaderAware {
 
     @BeforeEach
     public void createClient() {
-        mockClient = MockWebServiceClient.createClient(context);
+        mockServer = MockWebServiceServer.createServer(client);
     }
-
-
-    private MockWebServiceClient mockClient;
-    private ResourceLoader resourceLoader;
 
 
     @Test
@@ -53,58 +50,63 @@ class WebServiceTest implements ResourceLoaderAware {
         Resource request = resourceLoader.getResource("/requests/dishByIdRequest");
         Resource response = resourceLoader.getResource("/responses/dishByIdResponse");
 
-        mockClient.sendRequest(withSoapEnvelope(request))
-                .andExpect(soapEnvelope(response));
+        mockServer.expect(soapEnvelope(request))
+                .andRespond(withSoapEnvelope(response));
 
+        client.getDishById(2);
+
+        mockServer.verify();
     }
 
     @Test
-    @Order(1)
     void getAllDish() throws IOException {
         Resource request = resourceLoader.getResource("/requests/allDishRequest");
         Resource response = resourceLoader.getResource("/responses/allDishResponse");
 
-        mockClient.sendRequest(withSoapEnvelope(request))
-                .andExpect(soapEnvelope(response));
+        mockServer.expect(soapEnvelope(request))
+                .andRespond(withSoapEnvelope(response));
+
+        client.getAllDish();
+
+        mockServer.verify();
     }
 
     @Test
     void addDish() throws IOException {
         Resource request = resourceLoader.getResource("/requests/addDishRequest");
 
-        int sizeBefore = dishDao.findAll().size();
+        mockServer.expect(anything());
 
-        mockClient.sendRequest(withSoapEnvelope(request));
+        Dish dish = createDishFixture();
 
-        int sizeAfter = dishDao.findAll().size();
+        client.addDish(dish);
 
-        assertEquals(sizeBefore + 1, sizeAfter);
+        mockServer.verify();
     }
 
     @Test
     void updateDish() throws IOException {
         Resource request = resourceLoader.getResource("/requests/updateDishRequest");
 
-        Dish dish = dishDao.findById(2);
+        mockServer.expect(soapEnvelope(request));
 
-        mockClient.sendRequest(withSoapEnvelope(request));
+        Dish updatedDish = createDishFixture();
+        updatedDish.setId(2);
 
-        Dish updatedDish = dishDao.findById(2);
+        client.updateDish(updatedDish);
 
-        assertNotEquals(dish, updatedDish);
+        mockServer.verify();
     }
 
     @Test
     void deleteDish() throws IOException {
         Resource request = resourceLoader.getResource("/requests/deleteDishRequest");
 
-        int sizeBefore = dishDao.findAll().size();
+        mockServer.expect(soapEnvelope(request));
 
-        mockClient.sendRequest(withSoapEnvelope(request));
+        client.deleteDish(3);
 
-        int sizeAfter = dishDao.findAll().size();
-
-        assertEquals(sizeBefore - 1, sizeAfter);
+        mockServer.verify();
     }
 
     private Dish createDishFixture() {
