@@ -16,14 +16,14 @@
 ## Процесс запуска приложений
 
 1. Откройте проект webService и выполните:
-	- mvn clean compile
+	- mvn clean install
 	- Будут сгенерированы Java-классы(сущность, объекты запроса и ответа) из xsd-схемы.
 
 2. Запустите класс Application.java в webService.
 	- В браузере по адрессу http://localhost:8080/ws/dish.wsdl будет доступно wsdl-описание.
 	
 3. Откройте проект webClient и выполните:
-	- mvn clean compile
+	- mvn clean install
 	- Будут сгенерированы Java-классы(сущность, объекты запроса и ответа) из wsdl-схемы указанной пунктом выше.
 
 4. Запустите класс Application.java в webClient.
