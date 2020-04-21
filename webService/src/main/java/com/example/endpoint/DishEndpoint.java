@@ -1,6 +1,6 @@
-package com.webtechnology.endpoint;
+package com.example.endpoint;
 
-import com.webtechnology.dao.DishDao;
+import com.example.dao.DishDao;
 import net.spring.example.soap.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;

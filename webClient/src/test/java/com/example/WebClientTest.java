@@ -1,4 +1,4 @@
-package com.webtechnology;
+package com.example;
 
 
 import com.example.consumingwebservice.ApplicationWC;
@@ -47,8 +47,8 @@ class WebClientTest implements ResourceLoaderAware {
 
     @Test
     void getDishById() throws IOException {
-        Resource request = resourceLoader.getResource("/requests/dishByIdRequest");
-        Resource response = resourceLoader.getResource("/responses/dishByIdResponse");
+        Resource request = resourceLoader.getResource("/requests/dishByIdRequest.xml");
+        Resource response = resourceLoader.getResource("/responses/dishByIdResponse.xml");
 
         mockServer.expect(soapEnvelope(request))
                 .andRespond(withSoapEnvelope(response));
@@ -60,8 +60,8 @@ class WebClientTest implements ResourceLoaderAware {
 
     @Test
     void getAllDish() throws IOException {
-        Resource request = resourceLoader.getResource("/requests/allDishRequest");
-        Resource response = resourceLoader.getResource("/responses/allDishResponse");
+        Resource request = resourceLoader.getResource("/requests/allDishRequest.xml");
+        Resource response = resourceLoader.getResource("/responses/allDishResponse.xml");
 
         mockServer.expect(soapEnvelope(request))
                 .andRespond(withSoapEnvelope(response));
@@ -73,7 +73,7 @@ class WebClientTest implements ResourceLoaderAware {
 
     @Test
     void addDish() throws IOException {
-        Resource request = resourceLoader.getResource("/requests/addDishRequest");
+        Resource request = resourceLoader.getResource("/requests/addDishRequest.xml");
 
         mockServer.expect(anything());
 
@@ -86,7 +86,7 @@ class WebClientTest implements ResourceLoaderAware {
 
     @Test
     void updateDish() throws IOException {
-        Resource request = resourceLoader.getResource("/requests/updateDishRequest");
+        Resource request = resourceLoader.getResource("/requests/updateDishRequest.xml");
 
         mockServer.expect(soapEnvelope(request));
 
@@ -100,7 +100,7 @@ class WebClientTest implements ResourceLoaderAware {
 
     @Test
     void deleteDish() throws IOException {
-        Resource request = resourceLoader.getResource("/requests/deleteDishRequest");
+        Resource request = resourceLoader.getResource("/requests/deleteDishRequest.xml");
 
         mockServer.expect(soapEnvelope(request));
 

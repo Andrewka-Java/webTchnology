@@ -18,6 +18,7 @@ public class WCConfig {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
 
         marshaller.setContextPath("com.example.consumingwebservice.wsdl");
+//        marshaller.setContextPath("net.spring.example.soap");
 
         return marshaller;
     }
@@ -26,7 +27,7 @@ public class WCConfig {
     public DishClient dishClient(Jaxb2Marshaller marshaller) {
         DishClient client = new DishClient();
 
-        client.setDefaultUri("http://localhost:8080/ws");
+        client.setDefaultUri("http://localhost:8080/ws/");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
 

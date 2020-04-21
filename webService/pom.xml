@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
+	<artifactId>webService</artifactId>
+	<name>web-service</name>
+	<packaging>jar</packaging>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.6.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>com.example</groupId>
+		<artifactId>webTchnology</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-
-	<groupId>com.example</groupId>
-	<artifactId>webService</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>web-service</name>
-	<description>Demo project for Spring Boot</description>
-
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
 
 	<dependencies>
 		<dependency>
@@ -29,11 +22,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.springframework.ws/spring-ws-test -->
 		<dependency>
 			<groupId>org.springframework.ws</groupId>
 			<artifactId>spring-ws-test</artifactId>
-			<version>3.0.8.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -66,6 +59,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.19</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -111,6 +105,24 @@
 					<clearOutputDir>false</clearOutputDir>
 				</configuration>
 			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.codehaus.mojo</groupId>-->
+<!--				<artifactId>exec-maven-plugin</artifactId>-->
+<!--				<version>1.6.0</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<phase>install</phase>-->
+<!--						<goals>-->
+<!--							<goal>java</goal>-->
+<!--&lt;!&ndash;							<goal>exec</goal>&ndash;&gt;-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--				<configuration>-->
+<!--&lt;!&ndash;					<executable>webService-0.0.1-SNAPSHOT.jar</executable>&ndash;&gt;-->
+<!--					<mainClass>com.example.ApplicationWS</mainClass>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 

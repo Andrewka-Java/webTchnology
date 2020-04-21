@@ -1,12 +1,13 @@
-package com.webtechnology;
+package com.example;
 
 
-import com.webtechnology.dao.DishDao;
-import com.webtechnology.endpoint.config.WSConfig;
+import com.example.dao.DishDao;
+import com.example.endpoint.config.WSConfig;
 import net.spring.example.soap.Dish;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.Resource;
@@ -24,11 +25,12 @@ import static org.springframework.ws.test.server.ResponseMatchers.soapEnvelope;
 
 @ExtendWith(SpringExtension.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@ContextConfiguration(classes = {ApplicationWS.class, WSConfig.class})
+@ContextConfiguration(classes = {ApplicationWS.class})
 class WebServiceTest implements ResourceLoaderAware {
 
     @Autowired
     private ApplicationContext context;
+
     @Autowired
     private DishDao dishDao;
 
@@ -50,8 +52,8 @@ class WebServiceTest implements ResourceLoaderAware {
 
     @Test
     void getDishById() throws IOException {
-        Resource request = resourceLoader.getResource("/requests/dishByIdRequest");
-        Resource response = resourceLoader.getResource("/responses/dishByIdResponse");
+        Resource request = resourceLoader.getResource("/requests/dishByIdRequest.xml");
+        Resource response = resourceLoader.getResource("/responses/dishByIdResponse.xml");
 
         mockClient.sendRequest(withSoapEnvelope(request))
                 .andExpect(soapEnvelope(response));
@@ -61,8 +63,8 @@ class WebServiceTest implements ResourceLoaderAware {
     @Test
     @Order(1)
     void getAllDish() throws IOException {
-        Resource request = resourceLoader.getResource("/requests/allDishRequest");
-        Resource response = resourceLoader.getResource("/responses/allDishResponse");
+        Resource request = resourceLoader.getResource("/requests/allDishRequest.xml");
+        Resource response = resourceLoader.getResource("/responses/allDishResponse.xml");
 
         mockClient.sendRequest(withSoapEnvelope(request))
                 .andExpect(soapEnvelope(response));
@@ -70,7 +72,7 @@ class WebServiceTest implements ResourceLoaderAware {
 
     @Test
     void addDish() throws IOException {
-        Resource request = resourceLoader.getResource("/requests/addDishRequest");
+        Resource request = resourceLoader.getResource("/requests/addDishRequest.xml");
 
         int sizeBefore = dishDao.findAll().size();
 
@@ -83,7 +85,7 @@ class WebServiceTest implements ResourceLoaderAware {
 
     @Test
     void updateDish() throws IOException {
-        Resource request = resourceLoader.getResource("/requests/updateDishRequest");
+        Resource request = resourceLoader.getResource("/requests/updateDishRequest.xml");
 
         Dish dish = dishDao.findById(2);
 
@@ -96,7 +98,7 @@ class WebServiceTest implements ResourceLoaderAware {
 
     @Test
     void deleteDish() throws IOException {
-        Resource request = resourceLoader.getResource("/requests/deleteDishRequest");
+        Resource request = resourceLoader.getResource("/requests/deleteDishRequest.xml");
 
         int sizeBefore = dishDao.findAll().size();
 

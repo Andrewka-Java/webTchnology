@@ -1,4 +1,4 @@
-package com.webtechnology.dao;
+package com.example.dao;
 
 
 import net.spring.example.soap.Dish;

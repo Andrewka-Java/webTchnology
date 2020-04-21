@@ -1,12 +1,9 @@
 package com.example.consumingwebservice.controllers;
 
 import com.example.consumingwebservice.client.DishClient;
-import com.example.consumingwebservice.client.config.WCConfig;
 import com.example.consumingwebservice.wsdl.Dish;
 import com.example.consumingwebservice.wsdl.GetAllDishResponse;
 import com.example.consumingwebservice.wsdl.GetDishByIdResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class CookController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WCConfig.class);
+//    private static final Logger LOGGER = LoggerFactory.getLogger(WCConfig.class);
 
 
     @Autowired
@@ -42,7 +39,7 @@ public class CookController {
     @GetMapping("/dish/{id}")
     public String findDishById(@PathVariable("id") Integer id, Model model) {
 
-        LOGGER.info("DishClient: {}", dishClient);
+//        LOGGER.info("DishClient: {}", dishClient);
 
         GetDishByIdResponse dish = dishClient.getDishById(id);
 
