@@ -105,24 +105,23 @@
 					<clearOutputDir>false</clearOutputDir>
 				</configuration>
 			</plugin>
-<!--			<plugin>-->
-<!--				<groupId>org.codehaus.mojo</groupId>-->
-<!--				<artifactId>exec-maven-plugin</artifactId>-->
-<!--				<version>1.6.0</version>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<phase>install</phase>-->
-<!--						<goals>-->
-<!--							<goal>java</goal>-->
-<!--&lt;!&ndash;							<goal>exec</goal>&ndash;&gt;-->
-<!--						</goals>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--				<configuration>-->
-<!--&lt;!&ndash;					<executable>webService-0.0.1-SNAPSHOT.jar</executable>&ndash;&gt;-->
-<!--					<mainClass>com.example.ApplicationWS</mainClass>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>com.example.ApplicationWS</mainClass>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
