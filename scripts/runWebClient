@@ -1,0 +1,1 @@
+cd webClient; pwd; sleep 60; mvn clean install; $SHELL; fuser -n tcp -k 8088

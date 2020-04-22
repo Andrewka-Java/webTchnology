@@ -1,0 +1,1 @@
+cd webService; pwd; mvn clean install; $SHELL; fuser n tcp -k 8080
